@@ -83,7 +83,7 @@ class Server {
   }
 
   sockets () {
-    this.io.on('connection', socketHandler)
+    this.io.on('connection', (socket) => socketHandler(socket, this.io))
   }
 }
 

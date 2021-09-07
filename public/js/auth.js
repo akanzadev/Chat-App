@@ -21,7 +21,8 @@ function onSignIn(googleUser) {
     .then((res) => res.json())
     .then((data) => {
       const { token } = data;
-      window.localStorage.setItem("token", token);
+      window.localStorage.setItem("token", token);        
+      window.location.href = "./chat.html";
     });
 }
 function signOut() {
@@ -53,7 +54,8 @@ formLogin.addEventListener("submit", (e) => {
           title: "Ok!",
           text: data.message,
         });
-        window.localStorage.setItem("token", JSON.stringify(data.token));
+        window.localStorage.setItem("token", data.token);
+        window.location.href = "./chat.html";
       } else if (data.statusCode === 400) {
         Swal.fire({
           icon: "error",

@@ -27,7 +27,7 @@ const refreshToken = async (req = request, res = response, next) => {
   try {
     const { user } = req
     // Generar jwt
-    const token = await generatedJwt(user.uid)
+    const token = await generatedJwt(user._id)
     handleSuccess(res, req, { user, token }, 'Update token', 200)
   } catch (error) {
     next(error)

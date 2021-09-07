@@ -22,6 +22,7 @@ const login = async ({ email, password }) => {
     })
   }
   // Generar token
+  console.log(user._id)
   const token = await generatedJwt(user._id)
   return { user, token }
 }
